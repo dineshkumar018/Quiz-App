@@ -74,7 +74,7 @@ const QuestionScreen = ({ showResultScreen }) => {
               const isOptionCorrect =
                 isThisSelected && option.id == activeQuestion.correctOptionId;
               const isOptionIncorrect =
-                isThisSelected && option.id !== activeQuestion.correctOptionId;
+                isThisSelected && option.id != activeQuestion.correctOptionId;
               const isLoading = !isThisSelected && loading;
               return (
                 <button
