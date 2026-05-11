@@ -28,10 +28,7 @@ const validate_answer = async (req, res) => {
       return res.status(400).json({ message: "Question does not exist" });
     }
 
-    if (
-      question.answer.id == answer.id &&
-      question.answer.value == answer.value
-    ) {
+    if (question.correctOptionId == answer.id) {
       return res.status(200).json({ status: 1, message: "Correct answer :)" });
     }
 
