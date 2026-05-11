@@ -56,7 +56,7 @@ const QuestionScreen = ({ showResultScreen }) => {
     () => activeQuestionNumber === totalQuestions,
     [activeQuestionNumber, totalQuestions],
   );
-  
+
   return (
     <section className="question-section">
       <QuizLogo />
@@ -73,7 +73,9 @@ const QuestionScreen = ({ showResultScreen }) => {
               const isOptionCorrect =
                 isThisSelected && activeQuestion.isAnswerCorrect;
               const isOptionIncorrect =
-                isThisSelected && !activeQuestion.isAnswerCorrect;
+                isThisSelected &&
+                activeQuestion.hasAttempted &&
+                !activeQuestion.isAnswerCorrect;
               const isLoading = !isThisSelected && loading;
               return (
                 <button
@@ -107,7 +109,13 @@ const QuestionScreen = ({ showResultScreen }) => {
             })}
           </div>
           {isFinalQuesstion ? (
-            <Button onClick={showResultScreen} disabled={!activeQuestion.hasAttempted} size="small" >Submit</Button>
+            <Button
+              onClick={showResultScreen}
+              disabled={!activeQuestion.hasAttempted}
+              size="small"
+            >
+              Submit
+            </Button>
           ) : (
             <Button
               onClick={activateNextQuestion}
