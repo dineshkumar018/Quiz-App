@@ -72,9 +72,9 @@ const QuestionScreen = ({ showResultScreen }) => {
             {activeQuestion.options.map((option) => {
               const isThisSelected = option.id === userSelectedOption;
               const isOptionCorrect =
-                isThisSelected && activeQuestion.isAnswerCorrect;
+                isThisSelected && activeQuestion.correctOptionId;
               const isOptionIncorrect =
-                isThisSelected && !activeQuestion.isAnswerCorrect;
+                isThisSelected && !activeQuestion.correctOptionId;
               const isLoading = !isThisSelected && loading;
               return (
                 <button
