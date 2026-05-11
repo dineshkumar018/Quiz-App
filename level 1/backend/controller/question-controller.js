@@ -5,7 +5,7 @@ const fetchQuestions = async (req, res) => {
   try {
     const questions = await QuestionModel.aggregate([
       { $sample: { size: MAX_QUESTION_COUNT } },
-      { $project: { question: 1, options: 1 , correctOptionId: 1} },
+      { $project: { question: 1, options: 1,  } },
     ]);
     res.status(200).json({ questions });
   } catch (error) {
@@ -28,7 +28,10 @@ const validate_answer = async (req, res) => {
       return res.status(400).json({ message: "Question does not exist" });
     }
 
-    if (question.correctOptionId == answer.id) {
+    if (
+      question.answer.id == answer.id &&
+      question.answer.value == answer.value
+    ) {
       return res.status(200).json({ status: 1, message: "Correct answer :)" });
     }
 

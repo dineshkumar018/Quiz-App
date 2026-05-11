@@ -56,8 +56,7 @@ const QuestionScreen = ({ showResultScreen }) => {
     () => activeQuestionNumber === totalQuestions,
     [activeQuestionNumber, totalQuestions],
   );
-
-  const isAnswerCorrect = userSelectedOption === activeQuestion.correctOptionId;
+  
   return (
     <section className="question-section">
       <QuizLogo />
@@ -72,9 +71,9 @@ const QuestionScreen = ({ showResultScreen }) => {
             {activeQuestion.options.map((option) => {
               const isThisSelected = option.id === userSelectedOption;
               const isOptionCorrect =
-                isThisSelected && option.id == activeQuestion.correctOptionId;
+                isThisSelected && activeQuestion.isAnswerCorrect;
               const isOptionIncorrect =
-                isThisSelected && option.id != activeQuestion.correctOptionId;
+                isThisSelected && !activeQuestion.isAnswerCorrect;
               const isLoading = !isThisSelected && loading;
               return (
                 <button
