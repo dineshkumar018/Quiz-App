@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure the theme is applied */
+:root {
+  color-scheme: light;
+}
+
+/* Cyberpunk theme specific styles */
+[data-theme="cyberpunk"] {
+  --p: 323 100% 50%;
+  --s: 61 100% 50%;
+  --a: 280 100% 50%;
+  --n: 0 0% 100%;
+  --b1: 0 0% 100%;
+  --b2: 0 0% 95%;
+  --b3: 0 0% 91%;
+  --bc: 0 0% 0%;
+  --pc: 0 0% 100%;
+  --sc: 0 0% 0%;
+  --ac: 0 0% 100%;
+  --nc: 0 0% 100%;
+  --inc: 0 0% 100%;
+  --suc: 0 0% 0%;
+  --wac: 0 0% 0%;
+  --erc: 0 0% 100%;
+}
